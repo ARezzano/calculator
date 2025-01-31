@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+}
+
+.calculator{
+    justify-content: center;
+    align-items: center;
+    margin:200px 500px;
+}
+
+.container-screen{
+    border-style:double;
+    border: 2px;
+    border-radius: 10px;
+}
