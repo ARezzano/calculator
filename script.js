@@ -1,7 +1,9 @@
 let firstNumber;
 let operator;
 let secondNumber;
-
+const numButton = document.querySelectorAll(".num-button");
+const displayContent = document.getElementById("screen-display");
+const buttonContainer = document.querySelector(".container-buttons");
 
 function add(val1, val2){
     return val1 + val2;
@@ -21,12 +23,22 @@ function divide(val1,val2){
 
 function operate(oper,fNum,sNum){
     if(oper === "add"){
-        add(fNum,sNum);
+        return add(fNum,sNum);
     }else if(oper === "subtract"){
-        subtract(fNum,sNum);
+        return subtract(fNum,sNum);
     }else if(oper === "multiply"){
-        multiply(fNum,sNum);
+        return multiply(fNum,sNum);
     }else if(oper === "divide"){
-        divide(fNum,sNum);
+        return divide(fNum,sNum);
     }
 }
+
+function changeDisplay(val){
+    return displayContent.textContent = val;
+}
+
+buttonContainer.addEventListener("click",button => {
+    return changeDisplay(button.target.textContent);
+});
+
+
