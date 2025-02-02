@@ -7,6 +7,7 @@ const numButton = document.querySelectorAll(".num-button");
 const resultButton = document.getElementById("result-button");
 const displayContent = document.getElementById("screen-display");
 const buttonContainer = document.querySelector(".container-buttons");
+const clearButton = document.getElementById("clear-button");
 
 function add(val1, val2){
     return val1 + val2;
@@ -66,7 +67,7 @@ buttonContainer.addEventListener("click",(button) => {
 
 resultButton.addEventListener("click",() => {
     if(firstNumber && operator && secondNumber){
-        let resultOp = operate(operator,firstNumber,secondNumber);
+        let resultOp = operate(operator,firstNumber,secondNumber).toFixed(9);
         displayContent.textContent = resultOp;
         
         firstNumber = resultOp.toString();
@@ -74,6 +75,15 @@ resultButton.addEventListener("click",() => {
         secondNumber = "";
         operatorPressed = false;
     }
+});
+
+clearButton.addEventListener("click",() => {
+    firstNumber = "";
+    operator = "";
+    secondNumber = "";
+    operatorPressed = false;
+
+    return changeDisplay();
 });
 
 changeDisplay();
