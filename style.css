@@ -45,7 +45,7 @@ button{
     gap: 10px;
 }
 
-.num-button{
+.container-buttons button{
     flex: 1 1 20%;
     padding: 10px 3px;
     font-size: 30px;

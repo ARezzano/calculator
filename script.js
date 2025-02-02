@@ -1,7 +1,7 @@
-let firstNumber;
-let operator;
-let secondNumber;
-let currentDisplay;
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
+let operatorPressed = false;
 
 const numButton = document.querySelectorAll(".num-button");
 const resultButton = document.getElementById("result-button");
@@ -24,7 +24,10 @@ function divide(val1,val2){
     return val1/val2;
 }
 
-function operate(oper,fNum,sNum){
+function operate(oper,firstNum,secondNum){
+    fNum = parseFloat(firstNum);
+    sNum = parseFloat(secondNum);
+
     if(oper === "+"){
         return add(fNum,sNum);
     }else if(oper === "-"){
@@ -41,32 +44,35 @@ function calculate(){
 }
 
 function changeDisplay(){
-    if((firstNumber === undefined) && (operator === undefined) && (secondNumber === undefined)){
-        currentDisplay = "";
-    }else{
-        currentDisplay = firstNumber + operator + secondNumber;
-    }
-    return displayContent.textContent = currentDisplay;
+    displayContent.textContent = firstNumber + operator + secondNumber;
 }
 
-buttonContainer.addEventListener("click",button => {
-    if(parseInt(button.target.textContent) !=undefined){
-        if(firstNumber === undefined){
-            firstNumber = button.target.textContent;
-        }else if(secondNumber === undefined){
-            secondNumber = button.target.textContent;
+buttonContainer.addEventListener("click",(button) => {
+    const target = button.target;
+
+    if(target.classList.contains("num-button")){
+        if(!operatorPressed){
+            firstNumber += target.textContent;
+        }else{
+            secondNumber += target.textContent;
         }
-    }else{
-        operator = button.target.textContent;
+    }else if(target.classList.contains("op-button")){
+        operatorPressed = true;
+        operator = target.textContent;
     }
-    return changeDisplay();
+
+    changeDisplay();
 });
 
-resultButton.addEventListener("click",button => {
-    if((firstNumber != undefined) && (secondNumber != undefined) && (operator != undefined)){
+resultButton.addEventListener("click",() => {
+    if(firstNumber && operator && secondNumber){
         let resultOp = operate(operator,firstNumber,secondNumber);
-        currentDisplay = resultOp;
-        changeDisplay();
+        displayContent.textContent = resultOp;
+        
+        firstNumber = resultOp.toString();
+        operator = "";
+        secondNumber = "";
+        operatorPressed = false;
     }
 });
 
