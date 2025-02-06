@@ -2,12 +2,14 @@ let firstNumber = "";
 let operator = "";
 let secondNumber = "";
 let operatorPressed = false;
+let decimalPressed = false;
 
 const numButton = document.querySelectorAll(".num-button");
 const resultButton = document.getElementById("result-button");
 const displayContent = document.getElementById("screen-display");
 const buttonContainer = document.querySelector(".container-buttons");
 const clearButton = document.getElementById("clear-button");
+const decButton = document.getElementById("dec-button");
 
 function add(val1, val2){
     return val1 + val2;
@@ -60,6 +62,7 @@ buttonContainer.addEventListener("click",(button) => {
             }
         }else if(target.classList.contains("op-button")){
             operatorPressed = true;
+            decimalPressed = false;
             operator = target.textContent;
         }
     }
@@ -88,6 +91,17 @@ clearButton.addEventListener("click",() => {
     return changeDisplay();
 });
 
+decButton.addEventListener("click", (button) => {
+    const target = button.target;
+
+    if((!firstNumber.includes(".")) && (!operator)){
+        firstNumber += target.textContent;
+    }else if(!secondNumber.includes(".") && (operator)){
+        secondNumber += target.textContent;
+    }
+    return changeDisplay();
+});
+
 changeDisplay();
 
-//make decimal button work once per number, limit decimals, avoid calculator width from changing with high inputs
+//make decimal button work once per number, avoid calculator width from changing with high inputs
