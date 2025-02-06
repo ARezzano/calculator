@@ -36,8 +36,21 @@ button{
     border-style: solid;
 }
 
+.erase-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
 #clear-button{
     padding: 15px;
+    font-size: 34px;
+    width: 70%;
+}
+
+#delete-button{
+    width: 30%;
     font-size: 34px;
 }
 
