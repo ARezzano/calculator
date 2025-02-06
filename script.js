@@ -9,6 +9,7 @@ const displayContent = document.getElementById("screen-display");
 const buttonContainer = document.querySelector(".container-buttons");
 const clearButton = document.getElementById("clear-button");
 const decButton = document.getElementById("dec-button");
+const deleteButton = document.getElementById("delete-button");
 
 function add(val1, val2){
     return val1 + val2;
@@ -40,10 +41,6 @@ function operate(oper,firstNum,secondNum){
         return divide(fNum,sNum);
     }
 }
-
-/* function calculate(){
-    return operate(operator,firstNumber,secondNumber);
-} */
 
 function changeDisplay(){
     displayContent.textContent = firstNumber + operator + secondNumber;
@@ -102,6 +99,20 @@ decButton.addEventListener("click", (button) => {
     }else if(!secondNumber.includes(".") && (operator)){
         secondNumber += target.textContent;
     }
+    return changeDisplay();
+});
+
+deleteButton.addEventListener("click",() => {
+    let currentChar;
+    if((firstNumber) && (!operator) && (!secondNumber)){
+        firstNumber = firstNumber.toString().slice(0,-1);
+    }else if((firstNumber) && (operator) && (!secondNumber)){
+        operator = "";
+        operatorPressed = false;
+    }else if((secondNumber)){
+        secondNumber = secondNumber.toString().slice(0,-1);
+    }
+
     return changeDisplay();
 });
 
