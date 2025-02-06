@@ -6,6 +6,7 @@ body{
 
 .calculator{
     display: flex;
+    width: 550px;
     flex-direction: column;
     align-self: center;
     gap: 13px;

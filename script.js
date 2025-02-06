@@ -51,15 +51,17 @@ function changeDisplay(){
 buttonContainer.addEventListener("click",(button) => {
     const target = button.target;
 
-    if(target.classList.contains("num-button")){
-        if(!operatorPressed){
-            firstNumber += target.textContent;
-        }else{
-            secondNumber += target.textContent;
+    if(displayContent.textContent.length < 20){
+        if(target.classList.contains("num-button")){
+            if(!operatorPressed){
+                firstNumber += target.textContent;
+            }else{
+                secondNumber += target.textContent;
+            }
+        }else if(target.classList.contains("op-button")){
+            operatorPressed = true;
+            operator = target.textContent;
         }
-    }else if(target.classList.contains("op-button")){
-        operatorPressed = true;
-        operator = target.textContent;
     }
 
     changeDisplay();
@@ -67,7 +69,7 @@ buttonContainer.addEventListener("click",(button) => {
 
 resultButton.addEventListener("click",() => {
     if(firstNumber && operator && secondNumber){
-        let resultOp = operate(operator,firstNumber,secondNumber).toFixed(9);
+        let resultOp = operate(operator,firstNumber,secondNumber);
         displayContent.textContent = resultOp;
         
         firstNumber = resultOp.toString();
@@ -87,3 +89,5 @@ clearButton.addEventListener("click",() => {
 });
 
 changeDisplay();
+
+//make decimal button work once per number, limit decimals, avoid calculator width from changing with high inputs
