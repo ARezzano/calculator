@@ -137,7 +137,18 @@ deleteButton.addEventListener("click",() => {
     return changeDisplay();
 });
 
+document.addEventListener("keydown",(event)=>{
+    const key = event.key;
 
+    if(keyMaps.hasOwnProperty(key)){
+        const buttonId = keyMaps[key];
+        const button = document.getElementById(buttonId);
+
+        if(button){
+            button.click();
+        }
+    }
+});
 
 changeDisplay();
 
