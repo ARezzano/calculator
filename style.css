@@ -1,7 +1,22 @@
 body{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin: 0;
+}
+
+.tabs{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(45, 88, 81);
+    padding: 20px;
+    color: rgb(249, 255, 255);
+}
+
+#title{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .calculator{
@@ -14,10 +29,11 @@ body{
 
 .container-screen{
     display: flex;
+    background-color: rgb(201, 226, 222);
     justify-content:end;
     width: 94%;
     height: 60px;
-    margin: 100px 0px 0px 0px;
+    margin: 40px 0px 0px 0px;
     padding: 20px 30px 20px 0;
     border-style:solid;
     border-width: 1px;
@@ -32,8 +48,36 @@ body{
 
 button{
     border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
+    border-width: 2px;
+    border-style: outset;
+}
+
+button:active{
+    border-style: none;
+}
+
+.num-button{
+    background-color: rgb(65, 134, 123);
+    color: azure;
+    border-color: rgb(25, 65, 58);
+}
+
+.op-button{
+    background-color: rgb(243, 224, 118);
+    color: rgb(94, 60, 29);
+    border-color: rgb(247, 216, 39);
+}
+
+#result-button{
+    background-color: rgb(65, 134, 123);
+    color: azure;
+    border-color: rgb(25, 65, 58);
+}
+
+#dec-button{
+    background-color: rgb(65, 134, 123);
+    color: azure;
+    border-color: rgb(25, 65, 58);
 }
 
 .erase-buttons{
@@ -44,14 +88,19 @@ button{
 }
 
 #clear-button{
-    padding: 15px;
     font-size: 34px;
     width: 70%;
+    background-color: rgb(83, 187, 170);
+    color: rgb(28, 58, 53);
+    padding: 15px;
 }
 
 #delete-button{
     width: 30%;
     font-size: 34px;
+    background-color:rgb(201, 110, 74);
+    color:rgb(88, 52, 38);
+    padding: 15px;
 }
 
 .container-buttons{

@@ -151,5 +151,3 @@ document.addEventListener("keydown",(event)=>{
 });
 
 changeDisplay();
-
-//add keyboard support? add style
