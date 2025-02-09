@@ -132,6 +132,9 @@ deleteButton.addEventListener("click",() => {
         operatorPressed = false;
     }else if((secondNumber)){
         secondNumber = secondNumber.toString().slice(0,-1);
+    }else if((!firstNumber) && (!secondNumber)){
+        operator = "";
+        operatorPressed = false;
     }
 
     return changeDisplay();
