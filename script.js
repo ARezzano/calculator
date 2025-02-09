@@ -11,6 +11,27 @@ const clearButton = document.getElementById("clear-button");
 const decButton = document.getElementById("dec-button");
 const deleteButton = document.getElementById("delete-button");
 
+const keyMaps = {
+    "0": "button-0",
+    "1": "button-1",
+    "2": "button-2",
+    "3": "button-3",
+    "4": "button-4",
+    "5": "button-5",
+    "6": "button-6",
+    "7": "button-7",
+    "8": "button-8",
+    "9": "button-9",
+    "+": "button-add",
+    "-": "button-minus",
+    "/": "button-divide",
+    "*": "button-multiply",
+    "Enter": "result-button",
+    ".": "dec-button",
+    "Backspace": "delete-button",
+    "Escape": "clear-button"
+};
+
 function add(val1, val2){
     return val1 + val2;
 }
@@ -116,4 +137,8 @@ deleteButton.addEventListener("click",() => {
     return changeDisplay();
 });
 
+
+
 changeDisplay();
+
+//add keyboard support? add style
