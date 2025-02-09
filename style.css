@@ -54,12 +54,13 @@ button{
 
 button:active{
     border-style: none;
+    padding: 0 10px 10px 0;
 }
 
 .num-button{
     background-color: rgb(65, 134, 123);
     color: azure;
-    border-color: rgb(25, 65, 58);
+    border-color: rgb(74, 167, 151);
 }
 
 .op-button{
@@ -71,13 +72,13 @@ button:active{
 #result-button{
     background-color: rgb(65, 134, 123);
     color: azure;
-    border-color: rgb(25, 65, 58);
+    border-color: rgb(74, 167, 151);
 }
 
 #dec-button{
     background-color: rgb(65, 134, 123);
     color: azure;
-    border-color: rgb(25, 65, 58);
+    border-color: rgb(74, 167, 151);
 }
 
 .erase-buttons{
@@ -93,6 +94,7 @@ button:active{
     background-color: rgb(83, 187, 170);
     color: rgb(28, 58, 53);
     padding: 15px;
+    border-color: rgb(107, 223, 203);;
 }
 
 #delete-button{
@@ -100,6 +102,7 @@ button:active{
     font-size: 34px;
     background-color:rgb(201, 110, 74);
     color:rgb(88, 52, 38);
+    border-color: rgb(236, 137, 98);;
     padding: 15px;
 }
 
